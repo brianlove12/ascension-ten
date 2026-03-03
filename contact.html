@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Contact | Ascension Ten</title>
+
+    <meta
+      name="description"
+      content="Please reach out to Ascension Ten with any questions or concerns so we can help plan your dream Swiss Alps vacation."
+    >
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/A10favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/A10favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="page">
+      <header class="site-header">
+        <div class="container header-inner">
+          <h1 class="site-title">
+            <a href="index.html">Ascension Ten</a>
+          </h1>
+
+          <nav class="site-nav" aria-label="Primary navigation">
+            <ul class="nav-list">
+              <li><a href="index.html">Home</a></li>
+              <li><span class="disabled-link" aria-disabled="true">Accommodations</span></li>
+              <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Decorative hero background via CSS -->
+        <div class="hero hero--blank" role="presentation"></div>
+      </header>
+
+      <main id="main" class="site-main">
+        <div class="container">
+          <h2>Contact Us</h2>
+
+          <p class="intro">
+            Please reach out to us with any questions or concerns. We are happy to help you plan your dream vacation with us!
+            <br>
+            Required fields marked with a *
+          </p>
+
+          <figure class="contact-banner">
+            <img
+              src="images/swiss-sunset.jpg"
+              alt="A warm sunset over Swiss Alpine mountain ridges"
+              width="1200"
+              height="800"
+            >
+          </figure>
+
+          <section class="contact-grid" aria-label="Contact information and form">
+            <section class="contact-info" aria-label="Contact information">
+              <h3 class="contact-info-title">Plan Your Stay</h3>
+              <p>Let us know what you’re looking for and we’ll help you design the perfect Swiss Alps getaway.</p>
+              <p>Prefer email or phone? Choose a contact method and share any details in the comments.</p>
+              <p>We typically respond within 1–2 business days.</p>
+            </section>
+
+            <form class="form" action="https://wp.zybooks.com/form-viewer.php" method="post" target="_blank">
+
+              <fieldset class="fieldset">
+                <legend>Preferred Contact Method *</legend>
+                <div class="radio-group">
+                  <label for="prefEmail">
+                    <input id="prefEmail" name="preferredContact" type="radio" value="email" required>
+                    Email
+                  </label>
+                  <label for="prefPhone">
+                    <input id="prefPhone" name="preferredContact" type="radio" value="phone" required>
+                    Phone
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="fullName">Full Name *</label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number *</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+
+              <div class="field">
+                <label for="comments">Comments *</label>
+                <textarea id="comments" name="comments" rows="6" required></textarea>
+              </div>
+
+              <button class="btn" type="submit">Submit</button>
+            </form>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <p>Copyright ©2023 - Ascension Ten</p>
+          <p>This site is for educational purposes only</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

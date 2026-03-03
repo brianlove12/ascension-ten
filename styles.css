@@ -1,0 +1,506 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* GLOBAL BOX SIZING */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* VARIABLES / BASE */
+:root {
+  /* REQUIRED fixed width: 1280px OR 1440px */
+  --max-width: 1280px;
+  --page-padding: 4%;
+
+  --bg: #fffefc;
+  --text: #121212;
+  --muted: #444;
+
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  --radius: 14px;
+}
+
+body {
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.radio-group input[type="radio"] {
+  width: 3em;
+  height: 3em;
+  accent-color: #333;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fixed-width centered content */
+.container {
+  width: min(var(--max-width), calc(100% - (var(--page-padding) * 2)));
+  margin: 0 auto;
+}
+
+.site-main {
+  flex: 1;
+  padding: 3rem 0 4rem;
+}
+
+/* ACCESSIBILITY */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 2px solid #000;
+  z-index: 1000;
+}
+
+/* HEADER + HERO (background image) */
+.site-header {
+  position: relative;
+  background: url("images/swiss-valley.jpg") center/cover no-repeat;
+  color: #fff;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Overlay for readability */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.52) 38%,
+    rgba(0, 0, 0, 0.22) 70%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  z-index: 0;
+}
+
+.header-inner,
+.hero,
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.header-inner {
+  padding: 1.6rem 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.site-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.25rem;
+  letter-spacing: 0.2px;
+}
+.site-title a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navigation */
+.nav-list {
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.site-nav a,
+.site-nav a:visited {
+  color: #fff;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  outline: none;
+  border-color: #fff;
+}
+
+.site-nav a[aria-current="page"] {
+  border-color: #fff;
+}
+
+.site-nav a[aria-disabled="true"] {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Hero content layout  */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-content {
+  padding: 0 0 3.25rem;
+}
+.hero-kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.92;
+  margin-bottom: 0.35rem;
+}
+.hero-tagline {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2.3rem, 4.6vw, 3.7rem);
+  line-height: 1.15;
+  max-width: 20ch;
+}
+
+/* Contact page hero uses a blank element for spacing */
+.hero--blank {
+  flex: 1;
+}
+
+/* TYPOGRAPHY / INTRO */
+h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.intro-title {
+  margin-bottom: 0.75rem;
+}
+
+.intro-text {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* INDEX: FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.feature {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  padding-bottom: 1.5rem;
+  transition: transform 0.18s ease;
+}
+
+.feature:hover {
+  transform: translateY(-2px);
+}
+
+.feature img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.feature-title {
+  padding: 1rem 1.25rem 0.5rem;
+  text-align: center;
+  color: #111;
+}
+
+.feature-text {
+  padding: 0 1.25rem;
+  line-height: 1.65;
+  color: #555;
+}
+
+/* CONTACT: BANNER + GRID */
+.contact-banner {
+  margin: 0 auto 2rem;
+}
+.contact-banner img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 0.5rem;
+}
+
+/* Left column */
+.contact-info-title {
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+
+.contact-info p + p {
+  margin-top: 0.9rem;
+}
+
+/* FORM */
+.form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #111;
+}
+
+input,
+select,
+textarea {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #cfcfcf;
+  font-family: inherit;
+  background: #f1f1f1;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.fieldset {
+  border: 1px solid #cfcfcf;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.fieldset legend {
+  font-weight: 700;
+  padding: 0 0.4rem;
+  color: #111;
+}
+
+/* Radios side-by-side */
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.radio-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  background: #f2f2f2;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.radio-pill input[type="radio"] {
+  width: 2rem;
+  height: 1.3em;
+  margin: 0;
+  accent-color: #333;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+/* Font size for radio button labels */
+.radio-group label {
+  font-size: 1.3em;
+}
+
+/* Larger heading for Plan Your Stay section */
+.contact-info-title {
+  font-size: 1.5em;
+}
+
+/* Larger text for Plan Your Stay section */
+.contact-info {
+  font-size: 1.1em;
+}
+
+/* Form pseudo-class requirements */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: #b30000;
+}
+
+/* Submit button hover + focus */
+.btn {
+  background: #000;
+  color: #fff;
+  padding: 0.95rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+
+/* FOOTER */
+.site-footer {
+  background: #eaeaea;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 4rem;
+  color: #111;
+}
+
+.site-footer p + p {
+  margin-top: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .site-header {
+    min-height: 460px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-banner img {
+    height: 300px;
+  }
+
+  .hero-content {
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-list {
+    gap: 1.25rem;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .header-inner {
+    padding: 1.25rem 0 1rem;
+  }
+}
